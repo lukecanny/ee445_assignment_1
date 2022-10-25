@@ -33,8 +33,6 @@ poleYData = vp.YData;
 zeroXData = vz.XData;
 zeroYData = vz.YData;
 
-% zeroRValues = [sqrt(zeroXData(1)*zeroXData(1)+zeroYData(1)*zeroYData(1)); sqrt(zeroXData(2)*zeroXData(2)+zeroYData(2)*zeroYData(2))];
-% zeroThetaValues = [atan(zeroYData(1)/zeroXData(1)); atan(zeroYData(2)/zeroXData(2))];
 [poleTheta, poleRho] = cart2pol(poleXData, poleYData);
 [zeroTheta, zeroRho] = cart2pol(zeroXData, zeroYData);
 
