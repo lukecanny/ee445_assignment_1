@@ -20,9 +20,58 @@ a3 = [1, 0, 0.268];
 b4 = [0.634, -5, 10]; 
 a4 = [10, -5, 1]; 
 
-% Part (i)
+
+% % Part (i)
+% % Applying freqz function
+% [h, w] = freqz(b1,a1,1024);
+% 
+% % Converting frequency response vector to decibels (h is complex)
+% hDB = 20*log(abs(h));
+% figure;
+% % Plotting data
+% plot(w, hDB);
+% title("Plot of the Magnitude Response of the Filter")
+% xlabel("Normalised Frequency (pi radians per sample)");
+% ylabel("Magnitude (dB)");
+% 
+% figure;
+% 
+% h1 = impz(b1,a1);
+% 
+% % stem(n1,h1,'linewidth',2);
+% stem(h1);
+% grid on;
+% xlabel('Sample Index (n)');
+% ylabel('Magnitude of Impulse Response');
+% title('Impulse Response of the Filter');
+% 
+% % Part (ii)
+% % Applying freqz function
+% [h, w] = freqz(b2,a2,1024);
+% 
+% % Converting frequency response vector to decibels (h is complex)
+% hDB = 20*log(abs(h));
+% figure;
+% % Plotting data
+% plot(w, hDB);
+% title("Plot of the Magnitude Response of the Filter")
+% xlabel("Normalised Frequency (pi radians per sample)");
+% ylabel("Magnitude (dB)");
+% 
+% figure;
+% 
+% h1 = impz(b1,a1);
+% 
+% % stem(n1,h1,'linewidth',2);
+% stem(h1);
+% grid on;
+% xlabel('Sample Index (n)');
+% ylabel('Magnitude of Impulse Response');
+% title('Impulse Response of the Filter');
+% 
+% Part (iii)
 % Applying freqz function
-[h, w] = freqz(b2,a2,2048);
+[h, w] = freqz(b3,a3,1024);
 
 % Converting frequency response vector to decibels (h is complex)
 hDB = 20*log(abs(h));
@@ -35,8 +84,7 @@ ylabel("Magnitude (dB)");
 
 figure;
 
-n1 = [0:25];
-h1 = impz(b1,a1,n1);
+h1 = impz(b3,a3);
 
 % stem(n1,h1,'linewidth',2);
 stem(h1);
@@ -44,4 +92,28 @@ grid on;
 xlabel('Sample Index (n)');
 ylabel('Magnitude of Impulse Response');
 title('Impulse Response of the Filter');
+
+% % Part (iv)
+% % Applying freqz function
+% [h, w] = freqz(b4,a4,1024);
+% 
+% % Converting frequency response vector to decibels (h is complex)
+% hDB = 20*log(abs(h));
+% figure;
+% % Plotting data
+% plot(w, hDB);
+% title("Plot of the Magnitude Response of the Filter")
+% xlabel("Normalised Frequency (pi radians per sample)");
+% ylabel("Magnitude (dB)");
+% 
+% figure;
+% 
+% h1 = impz(b4,a4);
+% 
+% % stem(n1,h1,'linewidth',2);
+% stem(h1);
+% grid on;
+% xlabel('Sample Index (n)');
+% ylabel('Magnitude of Impulse Response');
+% title('Impulse Response of the Filter');
 
