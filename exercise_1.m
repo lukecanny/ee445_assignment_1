@@ -33,10 +33,15 @@ poleYData = vp.YData;
 zeroXData = vz.XData;
 zeroYData = vz.YData;
 
-fprintf("Zeros located at\n");
-fprintf('%d, %d\n', zeroXData(1), zeroYData(1));
-fprintf('%d, %d\n', zeroXData(2), zeroYData(2));
+% zeroRValues = [sqrt(zeroXData(1)*zeroXData(1)+zeroYData(1)*zeroYData(1)); sqrt(zeroXData(2)*zeroXData(2)+zeroYData(2)*zeroYData(2))];
+% zeroThetaValues = [atan(zeroYData(1)/zeroXData(1)); atan(zeroYData(2)/zeroXData(2))];
+[poleTheta, poleRho] = cart2pol(poleXData, poleYData);
+[zeroTheta, zeroRho] = cart2pol(zeroXData, zeroYData);
 
-fprintf("Poles located at\n");
-fprintf('%d, %d\n', poleXData(1), poleYData(1));
-fprintf('%d, %d\n', poleXData(2), poleYData(2));
+fprintf("Zeros (r, theta)\n");
+fprintf('%d, %d\n', zeroRho(1), zeroTheta(1));
+fprintf('%d, %d\n', zeroRho(2), zeroTheta(2));
+
+fprintf("\nPoles (r, theta)\n");
+fprintf('%d, %d\n', poleRho(1), poleTheta(1));
+fprintf('%d, %d\n', poleRho(2), poleTheta(2));
