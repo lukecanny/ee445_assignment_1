@@ -13,4 +13,6 @@ poleRadius = 0.96;
 fs = 16000;
 n = 2048;
 
+% Calculating theta (pole frequency is same as centre frequency)
+theta = poleFrequency(2*pi)/fs;
 
