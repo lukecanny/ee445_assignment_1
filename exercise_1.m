@@ -15,14 +15,28 @@ fs = 12000;
 
 % Applying freqz function
 [h, f] = freqz(b,a,n,fs);
-%  returns the n-point frequency response vector h and the corresponding 
-% angular frequency vector w for the digital filter with transfer function 
-% coefficients stored in b and a
 
 % Converting frequency response vector to decibels (h is complex)
 hDB = 20*log(abs(h));
 
 % Plotting data
 plot(f, hDB);
+title("Plot of the Magnitude Response of the Filter")
 xlabel("Frequency (Hz)");
 ylabel("Magnitude (dB)");
+figure;
+
+[vz,vp,vk] = zplane(b,a);
+title("Pole-Zero Map of the Magnitude Response")
+poleXData = vp.XData;
+poleYData = vp.YData;
+zeroXData = vz.XData;
+zeroYData = vz.YData;
+
+fprintf("Zeros located at\n");
+fprintf('%d, %d\n', zeroXData(1), zeroYData(1));
+fprintf('%d, %d\n', zeroXData(2), zeroYData(2));
+
+fprintf("Poles located at\n");
+fprintf('%d, %d\n', poleXData(1), poleYData(1));
+fprintf('%d, %d\n', poleXData(2), poleYData(2));
