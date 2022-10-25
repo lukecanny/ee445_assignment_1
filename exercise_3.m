@@ -21,11 +21,25 @@ b4 = [0.634, -5, 10];
 a4 = [10, -5, 1]; 
 
 % Part (i)
-freqz(b1,a1);
-n = [0:25];
-h = impz(b1,a1,n);
-figure
-stem(n,h,'linewidth',2);
+% Applying freqz function
+[h, w] = freqz(b2,a2,2048);
+
+% Converting frequency response vector to decibels (h is complex)
+hDB = 20*log(abs(h));
+figure;
+% Plotting data
+plot(w, hDB);
+title("Plot of the Magnitude Response of the Filter")
+xlabel("Normalised Frequency (pi radians per sample)");
+ylabel("Magnitude (dB)");
+
+figure;
+
+n1 = [0:25];
+h1 = impz(b1,a1,n1);
+
+% stem(n1,h1,'linewidth',2);
+stem(h1);
 grid on;
 xlabel('Sample Index (n)');
 ylabel('Magnitude of Impulse Response');
