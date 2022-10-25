@@ -6,7 +6,6 @@
 % Luke Canny 19339166 25/10/2022
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % Declaring inital constants
 b = [1 0.4];
 a = [1 -1.5*cos(pi/8) 0.96];
@@ -36,6 +35,8 @@ zeroYData = vz.YData;
 [poleTheta, poleRho] = cart2pol(poleXData, poleYData);
 [zeroTheta, zeroRho] = cart2pol(zeroXData, zeroYData);
 
+fcentre = (poleTheta(1)*fs)/ (2*pi);
+
 fprintf("Zeros (r, theta)\n");
 fprintf('%d, %d\n', zeroRho(1), zeroTheta(1));
 fprintf('%d, %d\n', zeroRho(2), zeroTheta(2));
@@ -43,3 +44,6 @@ fprintf('%d, %d\n', zeroRho(2), zeroTheta(2));
 fprintf("\nPoles (r, theta)\n");
 fprintf('%d, %d\n', poleRho(1), poleTheta(1));
 fprintf('%d, %d\n', poleRho(2), poleTheta(2));
+
+fprintf("Centre Frequency: %d Hz\n", fcentre);
+
