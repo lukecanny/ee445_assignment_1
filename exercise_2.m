@@ -16,30 +16,32 @@ n = 2048;
 % Calculating theta (pole frequency is same as centre frequency)
 theta = poleFrequency*(2*pi)/fs;
 
+% Declaring denominator and numerator variables
+% Where:
 % a1 = -2rcos(theta)
 % a2 = r^2
 % a0 = 1
+% b = 1 - Note: There is a double zero located at z=0.
 
-% Declaring denominator and numerator variables
 a = [1 -2*poleRadius*cos(theta) poleRadius^2];
 b = 1;
 
-% Applying freqz function
+% Applying freqz function - freqz calcs frequency response of digital
+% filter
 [h, f] = freqz(b,a,n,fs);
 
 % Converting frequency response vector to decibels (h is complex)
 hDB = 20*log(abs(h));
 
-% Plotting data
-plot(f, hDB);
+% Generating plots
+% -Plotting Magnitude Response of the Filter
+plot(f, hDB);  
 title("Plot of the Magnitude Response of the Filter")
 xlabel("Frequency (Hz)");
 ylabel("Magnitude (dB)");
-
 figure;
-h1 = impz(b,a);
-
-% stem(n1,h1,'linewidth',2);
+% -Plotting Magnitude Response of the Filter
+h1 = impz(b,a); %impz function calcs impulse response of a digital filter
 stem(h1);
 grid on;
 xlabel('Sample Index (n)');
