@@ -34,7 +34,7 @@ figure;
 
 % Plotting magnitude response of the filter
 plot(w, hDB);
-title("Plot of the Magnitude Response of the Filter")
+title("(i) Plot of the Magnitude Response of the Filter")
 xlabel("Normalised Frequency (pi radians per sample)");
 ylabel("Magnitude (dB)");
 figure;
@@ -45,71 +45,72 @@ stem(h1);
 grid on;
 xlabel('Sample Index (n)');
 ylabel('Magnitude of Impulse Response');
-title('Impulse Response of the Filter');
+title('(i) Impulse Response of the Filter');
+figure;
 
-% % Part (ii)
-% % Applying freqz function
-% [h, w] = freqz(b2,a2,1024);
-% 
-% % Converting frequency response vector to decibels (h is complex)
-% hDB = 20*log(abs(h));
-% figure;
-% % Plotting data
-% plot(w, hDB);
-% title("Plot of the Magnitude Response of the Filter")
-% xlabel("Normalised Frequency (pi radians per sample)");
-% ylabel("Magnitude (dB)");
-% 
-% figure;
-% 
-% h1 = impz(b1,a1);
-% stem(h1);
-% grid on;
-% xlabel('Sample Index (n)');
-% ylabel('Magnitude of Impulse Response');
-% title('Impulse Response of the Filter');
-% 
+% Part (ii)
+% Applying freqz function
+[h, w] = freqz(b2,a2,1024);
+
+% Converting frequency response vector to decibels (h is complex)
+hDB = 20*log(abs(h));
+
+% Plotting data
+plot(w, hDB);
+title("(ii) Plot of the Magnitude Response of the Filter")
+xlabel("Normalised Frequency (pi radians per sample)");
+ylabel("Magnitude (dB)");
+figure;
+
+h1 = impz(b1,a1);
+stem(h1);
+grid on;
+xlabel('Sample Index (n)');
+ylabel('Magnitude of Impulse Response');
+title('(ii) Impulse Response of the Filter');
+figure;
+
 % Part (iii)
 % Applying freqz function
 [h, w] = freqz(b3,a3,1024);
 
-% % Converting frequency response vector to decibels (h is complex)
-% hDB = 20*log(abs(h));
-% figure;
-% % Plotting data
-% plot(w, hDB);
-% title("Plot of the Magnitude Response of the Filter")
-% xlabel("Normalised Frequency (pi radians per sample)");
-% ylabel("Magnitude (dB)");
-% 
-% figure;
-% 
-% h1 = impz(b3,a3);
-% stem(h1);
-% grid on;
-% xlabel('Sample Index (n)');
-% ylabel('Magnitude of Impulse Response');
-% title('Impulse Response of the Filter');
+% Converting frequency response vector to decibels (h is complex)
+hDB = 20*log(abs(h));
 
-% % Part (iv)
-% % Applying freqz function
-% [h, w] = freqz(b4,a4,1024);
-% 
-% % Converting frequency response vector to decibels (h is complex)
-% hDB = 20*log(abs(h));
-% figure;
-% % Plotting data
-% plot(w, hDB);
-% title("Plot of the Magnitude Response of the Filter")
-% xlabel("Normalised Frequency (pi radians per sample)");
-% ylabel("Magnitude (dB)");
-% 
-% figure;
-% 
-% h1 = impz(b4,a4);
-% stem(h1);
-% grid on;
-% xlabel('Sample Index (n)');
-% ylabel('Magnitude of Impulse Response');
-% title('Impulse Response of the Filter');
+% Plotting data
+plot(w, hDB);
+title("(iii) Plot of the Magnitude Response of the Filter")
+xlabel("Normalised Frequency (pi radians per sample)");
+ylabel("Magnitude (dB)");
+
+figure;
+
+h1 = impz(b3,a3);
+stem(h1);
+grid on;
+xlabel('Sample Index (n)');
+ylabel('Magnitude of Impulse Response');
+title('(iii) Impulse Response of the Filter');
+figure;
+
+% Part (iv)
+% Applying freqz function
+[h, w] = freqz(b4,a4,1024);
+
+% Converting frequency response vector to decibels (h is complex)
+hDB = 20*log(abs(h));
+
+% Plotting data
+plot(w, hDB);
+title("(iv) Plot of the Magnitude Response of the Filter")
+xlabel("Normalised Frequency (pi radians per sample)");
+ylabel("Magnitude (dB)");
+figure;
+
+h1 = impz(b4,a4);
+stem(h1);
+grid on;
+xlabel('Sample Index (n)');
+ylabel('Magnitude of Impulse Response');
+title('(iv) Impulse Response of the Filter');
 
